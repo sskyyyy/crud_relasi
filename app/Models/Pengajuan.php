@@ -11,4 +11,9 @@ class Pengajuan extends Model
     protected $table ='pengajuan';
     protected $primaryKey ='id';
     protected $fillable = ['nama','kelas','alamat_perusahaan','tanggal_pengajuan'];
+
+    public  function keLas()
+    {
+        return $this->belongsTo(Kelas::class ,'kelas', 'id');
+    }
 }

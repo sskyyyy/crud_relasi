@@ -16,11 +16,17 @@
         <input type="text" name="nama" id="nama" class="form-control"><br>
 
         <label>Kelas</label>
-        <input type="text" name="kelas" id="kelas" class="form-control"><br>
-
+        <div class="form-group">
+            <select name="kelas" id="kelas" class="form-control">
+                @foreach ($kelas as $item)
+                <option value="{{ $item->id }}">{{ $item->kelas }}</option>
+                @endforeach
+            </select>
+        </div>
+        <br>
         <label>Alamat Perusahaan</label>
         <input type="text" name="alamat_perusahaan" id="alamat_perusahaan" class="form-control"><br>
-        
+
         <label>Tanggal Pengajuan</label>
         <input type="date" name="tanggal_pengajuan" id="tanggal_pengajuan" class="form-control"><br>
 
@@ -29,4 +35,4 @@
 </div>
 </div>
 </body>
-</html> 
+</html>

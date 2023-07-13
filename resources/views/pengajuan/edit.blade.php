@@ -17,15 +17,27 @@
     <input type="hidden" name="id" id="id" value="{{ $pengajuan->id }}" id="id">
     <label>Nama</label><br>
     <input type="text" name="nama" id="nama" value="{{ $pengajuan->nama}}" class="form-control"><br>
-    <label>Kelas</label><br>
-    <input type="text" name="kelas" id="kelas" value="{{ $pengajuan->kelas }}" class="form-control"><br>
+    <label>Kelas</label>
+        <select class="form-control" name="kelas" id="kelas">
+              @foreach ($kelas as $kls)
+                @if($kls->id== $pengajuan->kelas || $kls->id == old('kelas'))
+                <option selected value="{{ $kls->id }}">
+                    {{ $kls->kelas }}
+                </option>
+                @else
+                <option value="{{ $kls->id }}">
+                    {{ $kls->kelas }}
+                </option>
+                @endif
+              @endforeach
+          </select><br>
     <label>Alamat Perusahaan</label><br>
     <input type="text" name="alamat_perusahaan" id="alamat_perusahaan" value="{{ $pengajuan->alamat_perusahaan }}" class="form-control"><br>
     <label>Tanggal Pengajuan</label><br>
     <input type="text" name="tanggal_pengajuan" id="tanggal_pengajuan" value="{{ $pengajuan->tanggal_pengajuan }}" class="form-control"><br>
- 
-    <input type="submit" value="Update" class="btn btn-success">   
-</form> 
+
+    <input type="submit" value="Update" class="btn btn-success">
+</form>
 </div>
 </div>
 </body>

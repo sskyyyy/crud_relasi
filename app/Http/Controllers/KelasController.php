@@ -3,18 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Pengajuan;//add Pengajuan Model - Data is coming from the database via Model.
-use App\Models\Kelas;
+use App\Models\Kelas;//add Kelas Model - Data is coming from the database via Model.
 
-class PengajuanController extends Controller
+class KelasController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $pengajuan = Pengajuan::all();
-        return view ('pengajuan.index')->with('pengajuan',$pengajuan);
+        $kelas = Kelas::all();
+        return view ('kelas.index')->with('kelas',$kelas);
     }
 
     /**
@@ -22,8 +21,7 @@ class PengajuanController extends Controller
      */
     public function create()
     {
-        $kelas = Kelas::all();
-        return view('pengajuan.create',compact('kelas'));
+        return view('kelas.create');
     }
 
     /**
@@ -34,10 +32,10 @@ class PengajuanController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-        Pengajuan::create($input);
+        $input =$request->all();
+        Kelas::create($input);
 
-        return redirect('pengajuan')->with('flash_message', 'pengajuan Addedd');
+        return redirect('kelas')->with('flash_message', 'kelas Addedd');
     }
 
     /**
@@ -45,8 +43,8 @@ class PengajuanController extends Controller
      */
     public function show(string $id)
     {
-        $pengajuan = Pengajuan::find($id);
-        return view('pengajuan.show')->with('pengajuan', $pengajuan);
+        $kelas = Kelas::find($id);
+        return view('kelas.show')->with('kelas', $kelas);
     }
 
     /**
@@ -57,11 +55,8 @@ class PengajuanController extends Controller
      */
     public function edit(string $id)
     {
-        $pengajuan = Pengajuan::find($id);
-        $kelas = Kelas::get();
-        
-
-        return view('pengajuan.edit', ['kelas' => $kelas])->with('pengajuan', $pengajuan);
+        $kelas = Kelas::find($id);
+        return view('kelas.edit')->with('kelas', $kelas);
     }
 
     /**
@@ -73,10 +68,10 @@ class PengajuanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $pengajuan = Pengajuan::find($id);
+        $kelas = Kelas::find($id);
         $input =$request->all();
-        $pengajuan->update($input);
-        return redirect('pengajuan')->with('flash_message', 'pengajuan Updated!');
+        $kelas->update($input);
+        return redirect('kelas')->with('flash_message', 'kelas Updated!');
     }
 
     /**
@@ -87,7 +82,7 @@ class PengajuanController extends Controller
      */
     public function destroy(string $id)
     {
-        Pengajuan::destroy($id);
-        return redirect('pengajuan')->with('flash_message', 'Pengajuan deleted!');
+        Kelas::destroy($id);
+        return redirect('kelas')->with('flash_message', 'Kelas deleted!');
     }
 }

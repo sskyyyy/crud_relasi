@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('pengajuan', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('kelas');
+            $table->foreignId('kelas');
             $table->string('alamat_perusahaan');
-            $table->date('tanggal_pengajuan');
+            $table->string('tanggal_pengajuan');
+            $table->foreignId('kelas')->references('id')->on('kelas');
             $table->timestamps();
         });
     }

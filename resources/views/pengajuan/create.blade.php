@@ -28,7 +28,7 @@
         <input type="text" name="alamat_perusahaan" id="alamat_perusahaan" class="form-control"><br>
 
         <label>Tanggal Pengajuan</label>
-        <input type="date" name="tanggal_pengajuan" id="tanggal_pengajuan" class="form-control"><br>
+        <input type="text" name="tanggal_pengajuan" id="tanggal_pengajuan" class="form-control"><br>
 
         <input type="submit" value="Save" class="btn btn-success"><br>
     </form>
